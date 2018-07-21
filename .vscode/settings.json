@@ -1,0 +1,5 @@
+{
+	"python.pythonPath": "C:\\Python34\\python.exe",
+	"sqlite.sqlite3": "c:\\Users\\PEACE IBISIA JACK\\.vscode\\extensions\\alexcvzz.vscode-sqlite-0.1.2\\bin\\sqlite-win32-x86.exe",
+	"python.formatting.provider": "black"
+}
