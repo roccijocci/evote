@@ -25,9 +25,8 @@ class ResultsView(generic.DetailView):
 	model = Question
 	template = 'polls/results.html'
 
-def vote(request, question_id, pk):
-	model = Question
-	template = 'polls/detail.html'
+def vote(request, question_id):
+	return Question.objects.order_by('-pub_date')[:5]
 	# question = get_object_or_404(Question, pk=question_id)
 	# try:
 	# 	selected_choice = question.choice_set.get(pk = request.POST['choice'])
