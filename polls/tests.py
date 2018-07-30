@@ -1,6 +1,7 @@
 import datetime
 from django.test import TestCase
 from django.utils import timezone
+from django.urls import reverse
 
 from .models import Question
 # Create your tests here.
@@ -45,11 +46,11 @@ class QuestionIndexViewTests(TestCase):
 		response = self.client.get(reverse('polls:index'))
 		self.assertEqual(response.status_code, 200)
 		self.assertContains(response, "No polls are available.")		
-self.assertQuerysetEqual(response.context['latest_question_list'], [])
+		self.assertQuerysetEqual(response.context['latest_question_list'], [])
 
 	def test_past_question(self):
 		# questions with a pub_date in the past are displayed on the index page
-		create_question(question_text="Past Questions." days=-30)
+		create_question(question_text="Past questions.", days= -30)
 		response = self.client.get(reverse('polls:index'))
 		self.assertQuerysetEqual(
 			response.context['latest_question_list'],['<Question: Past question.>']
@@ -61,7 +62,7 @@ self.assertQuerysetEqual(response.context['latest_question_list'], [])
 		create_question(question_text="Future Questions", days=30)
 		response = self.client.get(reverse('polls:index'))
 		self.assertContains(response, "No polls are available.")
-self.assertQuerysetEqual(response.context['latest_question_list'], [])
+		self.assertQuerysetEqual(response.context['latest_question_list'], [])
 
 	def test_future_question_and_past_question(self):
 		#even if both past and future questions exist, only past questions are displayed
