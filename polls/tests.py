@@ -81,4 +81,12 @@ class QuestionIndexViewTests(TestCase):
 		self.assertQuerysetEqual(
 			response.context['latest_question_list'],
 			['<Question: Past question 2.>','<Question: Past Question 1.>']
-		) 
+		)
+		
+class QuestionDetailViewTests(TestCase):
+	def test_future_question(self):
+		# The detail view of a question with a pub_ddate in the future returns a 404 not test_future_question_and_past_question
+		future_question = create_question(question_text='Future question.', days=5)
+		url = reverse('polls:detail', args=(future_question.id,))
+		response = self.client.get(url)
+		self.assertEqual(response.status_code,404)
