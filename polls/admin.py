@@ -22,7 +22,10 @@ class QuestionAdmin(admin.ModelAdmin):
 	('Date information', {'fields':['pub_date'], 'classes': ['collapse']}),
 	]
 	inlines = [ChoiceInline]
+	#gives a filter sidebar in the  Question admin section
 	list_filter = ['pub_date']
+	#gives a search bar in the  Questionadmin section
+	search_fields = ['question_text']
 
 admin.site.register(Choice)
 admin.site.register(Question, QuestionAdmin)
