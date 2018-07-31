@@ -1,3 +1,7 @@
 li a {
 	color: rgba(206, 47, 255, 0.726);
 }
+body {
+	background: url('./images/zurich.jpg') no-repeat;
+	background-size: cover;
+}
