@@ -1,5 +1,6 @@
 li a {
-	color: rgba(206, 47, 255, 0.726);
+	/* color: rgba(206, 47, 255, 0.726); */
+	color:  black;
 }
 body {
 	background: url('./images/zurich.jpg') no-repeat;
