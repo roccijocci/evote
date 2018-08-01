@@ -6,3 +6,6 @@ body {
 	background: url('./images/zurich.jpg') no-repeat;
 	background-size: cover;
 }
+h1 a{
+	text-align: center;
+}
