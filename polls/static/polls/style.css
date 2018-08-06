@@ -8,16 +8,10 @@
 	-ms-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 }
-li a {
-	/* color: rgba(206, 47, 255, 0.726); */
-	color:  black;
-}
-body {
-	background-image: no-repeat
-	url('./images/zurich.jpg');
-	/* linear-gradient( to right bottom,	rgba(63, 10, 161, 0.8),	rgba(139, 0, 0, 0.8)), */
-	background-size: cover;
+h1{
+	color: snow;
 }
 h1 a{
 	text-align: center;
+
 }

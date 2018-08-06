@@ -3,127 +3,67 @@
 	<a href="{% url 'admin:index' %}">Polls Administration</a>
 </h1> -->
 <style>
-	
-	nav ul li a{
-		color: #fff;
-		text-decoration: none;
-	}
-	nav ul {
-		background: inherit;
-	}
-	nav ul > li {
-		padding : 15px;
-		display: inline;
-		transition: all .3s ease;
-		margin-left: -5px;
-	}
-	nav ul > li :not(:last-of-type):hover{
-		background-color: #222;
-	}
-	nav ul >li :last-of-type {
-		float: right;
-	}
-	nav ul  > li:last-of-type a .fa{
-		font-size: 21px;
-	}
-	nav ul > li:last-of-type{
-		position: relative;
-		display: none;
-	}
-	nav ul >ol {
-		position: absolute;
-		top: 49px;
-		right: 0;
-		background: #222;
-		text-align: center;
-		list-style: none;
-		display: none;
-	}
-	nav ul >ol >li {
-		width: 100vw;
-		color: #fff;
-		margin: 0;
-		padding:  0 ;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		transition: all .3s ease;
-	}
-	nav ul > ol > li:hover a{
-		margin: 20px;
-	}
-	nav ul > ol >li:hover{
-		background: #000;
-		cursor: pointer;
-	}
-	nav ul input {
-		opacity:  .7;
-		padding: 5px;
-		float: right;
-		display: none;
-	}
-	@media screen and (max-width:680px){
-		nav ul > li:not(:first-child){
-			display: none;
-		}
-		nav ul > li:last-of-type{
-			display: block;
-		}
-		nav ul input {
-			display:inline;
-		}
-	}
-	@media screen and (min-width:680px){
-		nav ul >ol > li {
-			display: none;
-		}
-	}
 	h1{
 		text-align: center;
 		padding-top: 20%;
+		color: snow;
 	}
 	h3{
 		text-align: center;
 	}
+	body{
+		background-image: url('../../static/polls/images/space.jpg')
+	}
+	nav * {
+		color: whitesmoke;
+	}
+	.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: steelblue;
+}
 </style>
-<nav> 
-	<ul>
-		<li> <a href="#"> Django Based Vote</a></li>
-		<li> <a href="#">Login	 </a></li>
-		<li><a href="#"> About   </a></li>
-		<li><a href="#">Services </a></li>
-		<li><a href="#"> Contact </a></li>
-		<li><a href=""><i class="fa fa-bars"></i>	</a></li>
-		<input type="search" name="#" id="#">
-	</ul>	
-</nav>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					{% comment %} <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button> {% endcomment %}
+					<a class="navbar-brand" href="#">
+						<img src="../../static/polls/images/brand.png" alt="Brand" class="img-thumbnail img-responsive">
+					</a>
+					<p  class="navbar-text"><em style="color: steelblue;">A django based Mock Voting Application</em> </p>
+				</div>
+				{% comment %} <ul class="nav navbar-nav">
+        <li class="active">
+					<a href="#">Overview <span class="sr-only">(current)</span></a>
+				</li>
+        <li><a href="#">What the App Does</a></li>
+				{% comment %} <li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li> {% endcomment %}
+				{% comment %} <li class="divider"></li>
+				<li><a href="#">View Total Votes</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Blank for now</a></li>
+			</div> {% endcomment %} 
+	</nav>
 <body>
-	<h1>Welcome, This is a mock voting app</h1>
+	<h1 style=" color: snow; ">Welcome, This is a mock voting app</h1>
 	<link rel="stylesheet" href="../../static/polls/style.css">
-	<h3 id = "site-name">
-		<a href="../../polls">Polls Administration </a>
+	<link rel="stylesheet" href="../../static/polls/bootstrap.css">
+	<link rel="stylesheet" href="../../static/polls/font-awesome.css">
+	<link rel="stylesheet" href="../../static/polls/animate.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<h3 id = "site-name" style="color: steelblue;"> Polls Administration | Get Started
+		<br>
+		<br>
+		<br>
+		<a href="../../polls">
+			<i class="fa fa-long-arrow-down bounceInDown"></i>
+		</a>
 	</h3>	
 </body>
-<script>
-$(function() {
-  var ulLi = $('nav ul > li'),
-      fa = $('nav ul > li:last-of-type a .fa');
-  
-   $('nav ul').append('<ol></ol>');
-  
-   $('nav').each(function() {
-     for (var i=0; i <= ulLi.length - 3; i++) {
-       $('nav ul > ol').append("<li>"+ i +"</li>");
-       $('nav ul > ol > li').eq(i).html(ulLi.eq(i+1).html());
-     }
-  });
-
-  $('nav ul > li:last-of-type').on('click', function() {
-    fa.toggleClass('fa-bars');
-    fa.toggleClass('fa-times');
-    $(this).parent().children('ol').slideToggle(500);
-  });
-});
-
-
-</script>
 {% endblock %} 
