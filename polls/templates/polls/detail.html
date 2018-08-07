@@ -13,7 +13,7 @@
 		<strong>{{ error_message }}</strong>
 	</p>{% endif %}
 
-	<form action="{% url 'polls:vote' question.id %}" method="post">
+	<form  class="form-inline" action="{% url 'polls:vote' question.id %}" method="post">
 		{% csrf_token %} {% for choice in question.choice_set.all %}
 		<input id="choice{{ forloop.counter }}" name="choice" type="radio" value="{{ choice.id }}">
 		<label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
