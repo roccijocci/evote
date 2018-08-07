@@ -21,6 +21,29 @@
     color: #fff;
     background-color: steelblue;
 }
+/*
+.arrow-down {
+   position: absolute;
+    bottom: 17%;
+    left: 48.5%;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    line-height: 40px;
+    z-index: 99;
+}*/
+.arrow-down i {
+    color: #de0f17;
+    border: 1px dashed #fff;
+    border-radius: 50%;
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+		line-height: 49px;
+ 		-webkit-animation: bounce 2s infinite ease-in-out;
+}
+
 </style>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -36,33 +59,31 @@
 					</a>
 					<p  class="navbar-text"><em style="color: steelblue;">A django based Mock Voting Application</em> </p>
 				</div>
-				{% comment %} <ul class="nav navbar-nav">
+				 <ul class="nav navbar-nav">
         <li class="active">
 					<a href="#">Overview <span class="sr-only">(current)</span></a>
 				</li>
         <li><a href="#">What the App Does</a></li>
-				{% comment %} <li><a href="#">Action</a></li>
-				<li><a href="#">Another action</a></li>
-				<li><a href="#">Something else here</a></li> {% endcomment %}
-				{% comment %} <li class="divider"></li>
-				<li><a href="#">View Total Votes</a></li>
+				<li><a href="#"></a></li>
+				<li><a href="#" style="text-emphasis: bold;">REGISTER</a></li> 
+				<li class="divider"></li>
 				<li class="divider"></li>
 				<li><a href="#">Blank for now</a></li>
-			</div> {% endcomment %} 
+			</div> 
 	</nav>
 <body>
 	<h1 style=" color: snow; ">Welcome, This is a mock voting app</h1>
 	<link rel="stylesheet" href="../../static/polls/style.css">
 	<link rel="stylesheet" href="../../static/polls/bootstrap.css">
 	<link rel="stylesheet" href="../../static/polls/font-awesome.css">
-	<link rel="stylesheet" href="../../static/polls/animate.min.css">
+	<link rel="stylesheet" href="../../static/polls/animate.min.css"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<h3 id = "site-name" style="color: steelblue;"> Polls Administration | Get Started
+	<h3 class="arrow-down" id = "site-name" style="color: steelblue;"> Polls Administration | Get Started
 		<br>
 		<br>
 		<br>
 		<a href="../../polls">
-			<i class="fa fa-long-arrow-down bounceInDown"></i>
+			<i class="fa fa-long-arrow-down bounceInDown infinite"></i>
 		</a>
 	</h3>	
 </body>

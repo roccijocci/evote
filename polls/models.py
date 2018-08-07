@@ -27,3 +27,13 @@ class Choice(models.Model):
 	votes = models.IntegerField(default=0)
 	def __str__(self):
 		return self.choice_text
+
+class Members(models.Model):
+	username =  models.CharField(max_length = 50)
+	first_name = models.CharField(max_length = 50)
+	last_name = models.CharField(max_length = 50)
+	email = models.CharField(max_length = 50)
+	password = models.CharField(max_length=200)
+	date_registered = models.DateTimeField('date_registered')
+	# def __str__(self):
+	# 	return [self.username,self.first_name]
