@@ -3,6 +3,28 @@
 		background-image: url('../../static/polls/images/space.jpg')
 	}
 </style>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a href="" class="navbar-brand">
+				<img src="../../static/polls/images/brand.png" alt="brand-logo">
+			</a>
+			<h4 class="navbar-text">
+				<em style="color: steelblue;">User index page | User login </em>
+			</h4>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active">
+				<a href="{% url 'login' %}"> Home </a>
+			</li>
+			<li class="divider"></li>
+			<li class="divider"></li>
+			<li style="float: right;">
+				<a href="{{ urls '../registration/logged_out/'}}">logout </a>
+			</li>
+		</ul>
+	</div>
+</nav>
 <body>
 	 {% load static %}
 	<!-- <link rel="stylesheet" href="{% static 'polls/style.css' %}"> -->
