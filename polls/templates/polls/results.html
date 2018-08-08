@@ -1,6 +1,6 @@
 <style>
 	body{
-		background-image: url('../../static/polls/images/space.jpg')
+ background-image: linear-gradient( to left top, rgba(0, 200, 211, 0.5), rgba(200, 50, 190, 0.8))
 	}
 </style>
 <body>
@@ -17,4 +17,6 @@
 	</ul>
 
 	<a href="{% url 'polls:detail' question.id %}">Vote Again? </a>
+	<br>
+	<a style="float: right;" href="../../../account/logout">Log out </a>
 </body>

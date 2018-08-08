@@ -1,6 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
@@ -10,9 +11,11 @@ from django.views import generic
 from .models import Question, Choice  
 
 
-class IndexView(generic.ListView):
+class IndexView(LoginRequiredMixin,generic.ListView):
 	template_name = 'polls/index.html'
 	context_object_name = 'latest_question_list'
+	login_url = '../account/login'
+	redirect_field_name = 'redirect_to'
 
 	def get_queryset(self):
 		# Return the last five published questions
