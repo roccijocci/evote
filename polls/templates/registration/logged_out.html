@@ -1,7 +1,15 @@
-<link rel="stylesheet" href="../../static/polls/bootstrap.css">
-<div class="container">
-	{% block content %}
-	<h2 class="alert-danger">Logged out!!! </h2>
-<a href="{% url 'login' %}">Click here to log in again </a>
-</div>
-{% endblock %}
+<style>
+	body{
+		background-image:linear-gradient( to right bottom, rgba(20, 10, 110, 0.6), rgba(139, 34, 0, 0.4))
+
+	}
+</style>
+<body>
+	<link rel="stylesheet" href="../../static/polls/bootstrap.css">
+	<div class="container">
+		{% block content %}
+		<h1 style="font-weight: 300px;">Logged out!!! </h1>
+		<a href="{% url 'login' %}">Click here to log in again </a>
+	</div>
+	{% endblock %}	
+</body>

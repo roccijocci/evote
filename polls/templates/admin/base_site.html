@@ -1,0 +1,101 @@
+<style>
+	body {
+		padding-top: 200px;
+	}
+
+	ul li {
+		float: right;
+	}
+
+	body {
+		background-image: linear-gradient( to right top, rgba(119, 21, 116, 0.8), rgba(34, 139, 34, 0.8));
+	}
+</style>
+
+<body>
+	<link rel="stylesheet" href="../../static/polls/bootstrap.css">
+	<link rel="stylesheet" href="../../static/polls/font-awesome.css">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="" class="navbar-brand">
+					<img src="../../static/polls/images/brand.png" alt="brand-logo">
+				</a>
+				<h4 class="navbar-text">
+					<em style="color: steelblue;">User index page | User login </em>
+				</h4>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active">
+					<a href="{% url 'login' %}"> Home </a>
+				</li>
+				<li class="divider"></li>
+				<li class="divider"></li>
+				<li style="float: right;">
+					<a href="../../accounts/login">Register | login in as user </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	{% comment %} {% extends "base_generic.html" %} {% endcomment %} {% block content %} {% if form.errors %}
+	<p>Your username and password didn't match. Please try again.</p>
+	{% endif %} {% if next %} {% if user.is_authenticated %}
+	<p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+	{% else %}
+	<p>Please login to see this page.</p>
+	{% endif %} {% endif %}
+
+	<div class="container">
+<h1 style=" color: snow; ">Welcome, This is the ADMIN AREA</h1>
+
+		{% comment %}
+		<form method="post" class="form-horizontal" action="{% url 'login' %}">
+			{% csrf_token %}
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">
+					<td>{{ form.username.label_tag }}</td>
+				</label>
+				<td>{{ form.username }}</td>
+			</div>
+			<div>
+				<td>{{ form.password.label_tag }}</td>
+				<td>{{ form.password }}</td>
+			</div>
+
+			<div>
+				<input type="submit" value="login" />
+				<input type="hidden" name="next" value="{{ next }}" />
+			</div>
+		</form> {% endcomment %}
+
+		<form class="form-horizontal col-md-6 col-md-offset-3" method="post" action="{% url 'login' %}">
+			{%csrf_token %}
+
+			<div class="form-group form-group-lg">
+				<label class="col-sm-2 control-label">
+					<td>{{ form.username.label_tag }}</td>
+				</label>
+				<div class="col-md-6">
+					<input type="text" class="form-control" placeholder="all in lowercase" {{form.username}} </div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">{{ form.password.label_tag}} </label>
+					<div class="col-md-6">
+						<input type="password" class="form-control" placeholder="minimum of 6 characters" {{form.password }} </div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" value="login" class="btn btn-primary">Sign in</button>
+							<input type="hidden" name="next" value="{{ next }}">
+						</div>
+					</div>
+		</form>
+		{# Assumes you setup the password_reset view in your URLconf #}
+		<p>
+			<a href="{% url 'password_reset' %}">Lost password?</a>
+		</p>
+		{% endblock %}
+		</div>
+</body>

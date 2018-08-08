@@ -42,6 +42,8 @@
 	{% endif %} {% endif %}
 	
 	<div class="container">
+		<h1 style=" color: snow; text-align: center; padding-bottom: 10px; ">Welcome, This is a mock voting app</h1>
+		<p class="text-center" style="color: rgba(70, 10, 180, 0.9)"> This is the user area</p>
 		 {% comment %} <form method="post" class="form-horizontal" action="{% url 'login' %}">
 			{% csrf_token %}
 
@@ -60,7 +62,7 @@
 			</div>
 		</form>  {% endcomment %}
 
-			<form class="form-horizontal" method="post" action="{% url 'login' %}">
+			<form class="form-horizontal col-md-6 col-md-offset-3" method="post" action="{% url 'login' %}">
 				{%csrf_token %}
 
 				<div class="form-group">
@@ -84,9 +86,11 @@
 				</div>
 			</form>
 		{# Assumes you setup the password_reset view in your URLconf #}
-		<p>
-			<a href="{% url 'password_reset' %}">Lost password?</a>
-		</p>
+		
+			<p>
+				<a href="{% url 'password_reset' %}">Lost password?</a>
+			</p>
+
 
 		{% endblock %}
 	</div>

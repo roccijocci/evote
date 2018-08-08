@@ -11,3 +11,5 @@ clone using git clone
 navigate using your shell/cmd prompt  
 then run using  
  "py manage.py runserver"
+
+all my routing are hard coded , will look into view later
