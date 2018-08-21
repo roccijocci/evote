@@ -2,17 +2,24 @@ from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import admin
+from django.template import loader
 
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 # from django.template import loader
-from .models import Question, Choice  
+from .models import Question, Choice , Members 
 
+# class AdminView(LoginRequiredMixin,generic.ListView):
+# 	template_name = 'admin/'
+# 	login_url = '../account/login'
+# 	redirect_field_name = 'redirect_to'
 
 class IndexView(LoginRequiredMixin,generic.ListView):
 	template_name = 'polls/index.html'
+	# template_name = 'admin/'
 	context_object_name = 'latest_question_list'
 	login_url = '../account/login'
 	redirect_field_name = 'redirect_to'
@@ -28,47 +35,6 @@ class DetailView(generic.DetailView):
 	model = Question
 	template = 'polls/detail.html'
 
-# class ResultsView(generic.DetailView):
-# 	model = Question
-# 	template = 'polls/results.html'
-
-# def vote(request, question_id):
-# 	question = get_object_or_404(Question, pk=question_id)
-# 	try:
-# 		selected_choice = question.choice_set.get(pk = request.POST['choice'])
-# 	except (KeyError, Choice.DoesNotExist):
-# 		#redisplay the question vting form.
-# 		return render(request, 'polls/detail.html',{'question':question,'error_message': "You did not select a choice.",})
-# 	else:
-# 		selected_choice.votes += 1
-# 		selected_choice.save()
-# 		return HttpResponseRedirect(reverse('polls:results', args = (question_id,)))
-# 		return HttpResponse("You are voting on question %s." % question_id)
-
-
-
-# def index(request):
-# 	latest_question_list = Question.objects.order_by('-pub_date')[:5]
-# 	context = {'latest_question_list': latest_question_list}
-# 	return render(request, 'polls/index.html', context)
-# 	# template = loader.get_template('polls/index.html')
-# 	# context = {
-# 	# 	'latest_question_list': latest_question_list,
-# 	# }
-# 	# return HttpResponse(template.render(context,request))
-# 	# output = ', '.join([q.question_text for q in latest_question_list])
-# 	# return HttpResponse(output)
-# 	#return HttpResponse("Hello, world. You are at the polls index.")
-
-# def detail(request, question_id):
-# 	question = get_object_or_404(Question, pk=question_id)
-# 	return render(request, 'polls/detail.html',	{'question':question})
-# 	# return HttpResponse("You are looking at the results of a question %s." % question_id)
-# 	# try:
-# 	# 	question = Question.objects.get(pk = question_id)
-# 	# except Question.DoesNotExist:
-# 	# 	raise Http404("Question Does not Exist")
-# 	# return render(request, 'polls/detail.html', {'question':question})
 def results(request, question_id):
 	# response = "You are looking at the results of question %s."
 	# return HttpResponse(response % question_id)
@@ -90,4 +56,43 @@ def vote(request, question_id):
 		selected_choice.votes += 1
 		selected_choice.save()
 		return HttpResponseRedirect(reverse('polls:results', args = (question_id,)))
+	
+def members(request):
+	members_names = Members.objects.order_by('id')[:10]
+	context = {'members_names': members_names}
+	return render(request, 'polls/members.html', context)
+	
 	# return HttpResponse("You are voting on question %s." % question_id)
+# class MemberDetailView(generic.DetailView):
+# 	model =  Members
+# 	template = 'polls/members.html'
+# 	context_object_name = 'members_name'
+
+# def members(request, member_id):
+# 	members	= get_object_or_404(Members,pk=member_id)
+# 	context = {'members_name': members_name}
+# 	return render(request, 'polls/members.html',context)
+# class DetailView(DetailView):
+# 		model = Members
+# 		template_name='polls/members.html'
+# 		context_object_name = 'members'
+
+# def members(request):
+#  members_name	= get_object_or_404(Members)
+#  context = members_name.
+#  return render(request, 'polls/members.html','members':get_names())
+# 	# members = Members.object.get(pk=member_id)
+
+# def members(request):
+# 	members_names = Members.objects.order_by('id')[:10]
+# 	output = ','.join([m.first_name for m in members_names]) 
+# 	return HttpResponse(output)
+
+
+# def members(request):
+# 	members_names = Members.objects.order_by('id')[:10]
+# 	template = loader.get_template('polls/members.html')
+# 	context = {
+# 		'members_names':members_names,
+# 	}
+# 	return HttpResponse(template.render(context,request))

@@ -1,0 +1,21 @@
+<style>
+	body {
+		background-image: linear-gradient( to top right, rgba(252, 118, 8, 0.849), rgba(254, 255, 254, 0.87))
+	}
+</style>
+
+<body>
+	<link rel="stylesheet" href="../../static/polls/bootstrap.css"> 
+	<h1 class="text-center"> Names of all members(registered) </h1>
+	{% if members_names %}
+		<ul>
+			{% for members in members_names %}
+			<h3>{{members.first_name}} --- {{ members.last_name}} --- {{members.email}}</h3>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<h1> No Members yet.</h1>
+	{% endif %}
+	<!-- {{members.first_name}} -->
+</body>
+	<!-- todo list all the registered Users on this page -->
