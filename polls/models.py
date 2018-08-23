@@ -48,7 +48,10 @@ class Members(models.Model,BaseUserManager):
 			raise ValueError('Users must have email address')
 		member = self.model(
 			email = self.normalize(email),
-			username = self.get_by_natural_key(username),
+			username = username,
+			# username = self.get_by_natural_key(username),
+			# def clean(self):
+			# 	username = get_by_natural_key(),
 			first_name = first_name,
 			last_name = last_name,
 			date_registered = date_registered,

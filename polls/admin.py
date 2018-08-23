@@ -57,6 +57,9 @@ class UserCreationForm(forms.ModelForm):
 				user.save()
 			return user
 
+class UserAdmin(BaseUserAdmin):
+	
+
 admin.site.register(Choice)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Members)
