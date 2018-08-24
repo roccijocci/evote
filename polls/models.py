@@ -28,6 +28,21 @@ class Choice(models.Model):
 	def __str__(self):
 		return self.choice_text
 
+class Members(models.Model):
+	username =  models.CharField(max_length = 50)
+	first_name = models.CharField(max_length = 50)
+	last_name = models.CharField(max_length = 50)
+	email = models.CharField(max_length = 50)
+	password = models.CharField(max_length=200)
+	date_registered = models.DateTimeField('date_registered')
+	# assoc = models.ManyToManyField()
+	def __str__(self):
+		return 	self.username +"  "+ self.last_name 
+	def get_username(self):
+		return self.username
+	def get_names(self):
+		return self.last_name + " "+ self.first_name
+
 # class Members(models.Model,BaseUserManager):
 # 	username =  models.CharField(max_length = 50)
 # 	first_name = models.CharField(max_length = 50)
